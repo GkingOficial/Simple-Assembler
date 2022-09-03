@@ -1,0 +1,93 @@
+TIPO R
+add $s0 $s1 $s2
+sll $s0 $s1 $s2
+jr $s0
+
+Criar char **guardarResultado[6]
+
+Identificar o tipo R ("instrução:")
+Preencher o opcode 000000 no guardarResultado[0]
+Funct identificado no arquivo 'funcoes.txt' (colocar no guardarResultado)
+
+if(numeroDeRegistradores > 1) {
+  Procurar na tabela de registradores o valor do registrador '$s0' (colocar no guardarResultado[3] (rd))
+  Procurar na tabela de registradores o valor do registrador '$s1'(colocar no guardarResultado[1] (rs))
+  Procurar na tabela de registradores o valor do registrador '$s2'(colocar no guardarResultado[2] (rt))
+} else {
+  Colocar 00000 no guardarResultado[3] (rd)
+  Procurar na tabela de registradores o valor do registrador '$s0' (colocar no guardarResultado[1] (rs))
+  Colocar 00000 no guardarResultado[2] (rt)
+}
+Shamt é 00000 (por enquanto)
+
+-000000 #opcode
+-10010 #rs
+-10000 #rt
+-10001 #rd
+-00000 #shamt
+-100010 #funct
+
+
+
+
+
+TIPO I
+addi $s0 $s1 28
+beq $s0 $s1 for
+lw $s0, 555($s1)
+sw $s0, -100($t1)
+
+Criar char **guardarResultado[4]
+
+Identificar o tipo I ("instrução:")
+Opcode identificado no arquivo 'funcoes.txt' (colocar no guardarResultado[0])
+Procurar na tabela de registradores o valor do registrador '$s0' (colocar no guardarResultado[2] (rt))
+Procurar na tabela de registradores o valor do registrador '$s1'(colocar no guardarResultado[1] (rs))
+
+if(label) {
+  Leitura e procura do 'for' no arrayAuxiliarParaLabels, identificar a posição e procurar valor correspondente em linhaDosLabels
+  Manipular o valor da linhaDosLabels para formar o target address
+  Concatenar os valores do guardarResultado
+} else {
+  Transformar o número '28' em binário e colocar 0's à esquerda
+  Concatenar os valores do guardarResultado
+}
+
+-000000 #opcode
+-10010 #rs
+-10000 #rt
+-0000 0000 0000 0000 #imm
+
+
+
+
+
+TIPO J
+j for
+
+Criar char **guardarResultado[2]
+Criar char **arrayAuxiliarParaLabels
+Criar int linhaDosLabels[]
+
+Identificar o tipo J ("instrução:")
+Opcode identificado no arquivo 'funcoes.txt' (colocar no guardarResultado[0])
+Leitura e procura do 'for' no arrayAuxiliarParaLabels, identificar a posição e procurar valor correspondente em linhaDosLabels
+Manipular o valor da linhaDosLabels para formar o target address (colocar em guardarResultado[1])
+Concatenar os valores do guardarResultado
+
+-000000 #opcode
+-00 0000 0000 0000 0000 0000 0000 #target address
+
+
+// Tratando comentários e linha com caracter vazio //
+
+str = "main: \0(comentário)"
+str = "add $s0 $zero $zero"
+str = "add $s1 $zero $zero \0(comentário)"
+str = "\0(comentário)". str[0] == "" || str[0] == '\n'
+str = "\n"
+strchr('#');
+
+// Tratando labels //
+
+strcspn(':');
