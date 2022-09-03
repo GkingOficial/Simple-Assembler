@@ -37,12 +37,12 @@ Onde 1, 2 e 3 indicam as linhas do arquivo.
 ## Rodando a aplicação
 ```bash
 # Clonando o repositório
-$ git clone https://github.com/Daniel-Alencar/simple-assembler
+$ git clone https://github.com/GkingOficial/Simple-Assembler
 ```
 
 ```bash
 # Acesse a pasta do projeto no terminal/cmd
-$ cd simple-assembler
+$ cd /Simple-Assembler/Simple Assembler
 ```
 
 ```bash
